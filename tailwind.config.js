@@ -2,6 +2,11 @@
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    fontFamily: {
+      helvetica: ['helvetica-neue-55', 'serif'],
+      code_bold: ['code_bold', 'serif'],
+      didot_regular: ['didot_regular', 'serif'],
+    },
     fontSize: {
       xs: '0.75rem',
       sm: '0.875rem',
@@ -13,11 +18,12 @@ module.exports = {
       '4xl': '2.25rem',
       '5xl': '3rem',
       '6xl': '4rem',
+      xxxl: '35vw',
     },
     extend: {
       colors: {
         gray: {
-          100: '#f7fafc',
+          100: '#231815',
           200: '#edf2f7',
           300: '#e2e8f0',
           400: '#cbd5e0',
@@ -38,6 +44,9 @@ module.exports = {
           800: '#2c5282',
           900: '#2a4365',
         },
+      },
+      letterSpacing: {
+        xxl: '0.38em',
       },
     },
   },

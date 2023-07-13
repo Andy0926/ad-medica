@@ -1,21 +1,57 @@
 @tailwind base;
 
-a {
-  @apply text-blue-700;
+@font-face {
+  font-family: code_bold;
+  src: url('/assets/fonts/code_bold.ttf');
 }
 
-a:hover {
-  @apply border-b-2 border-blue-700;
+@font-face {
+  font-family: didot_regular;
+  src: url('/assets/fonts/didot_regular.ttf');
 }
 
 @tailwind components;
 
 @tailwind utilities;
 
-.content p {
-  @apply my-6;
+body{
+  cursor: none;
+  height: 100%;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
 }
 
-.content ul {
-  @apply my-6;
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: red;
+  z-index: 42;
+  transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+.cursor-dot--outline {
+  background: grey;
+}
+.pageTransition{
+  animation-duration: 1.5s ;
+  animation-name: slidein;
+  animation-timing-function: linear;
+}
+@keyframes slidein {
+  from {
+    margin-left: 0%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 300%;
+    width: 100%;
+  }
 }
