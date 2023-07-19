@@ -31,6 +31,7 @@ const Index = () => {
           })}
         </div>
       </section>
+      <div className="h-[1000px] w-full" />
     </Main>
   );
 };

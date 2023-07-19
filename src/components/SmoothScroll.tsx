@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import React, { useEffect, useRef } from 'react';
 
 import useWindowSize from '@/hooks/useWindowSize';
@@ -51,4 +52,6 @@ const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default SmoothScroll;
+export default dynamic(() => Promise.resolve(SmoothScroll), {
+  ssr: false,
+});

@@ -1,8 +1,9 @@
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { type ReactNode } from 'react';
 
+import Cube from '@/components/cube';
 import { Cursor } from '@/components/cursor';
+import SmoothScroll from '@/components/SmoothScroll';
 import { NavigationBarList } from '@/data/NavigationBarData';
 
 type IMainProps = {
@@ -10,20 +11,18 @@ type IMainProps = {
   children: ReactNode;
 };
 
-const NoSSRScroll = dynamic(() => import('@/components/SmoothScroll'), {
-  ssr: false,
-});
-
 const Main = (props: IMainProps) => {
   return (
     <div className="w-full antialiased ">
+      <Cube />
+
       <div
         className="pageTransition absolute top-0 z-50 ml-[300%] h-full w-full bg-black"
         style={{ pointerEvents: 'none' }}
       />
       {props.meta}
-      <NoSSRScroll>
-        <div className="mx-auto my-8 bg-white">
+      <SmoothScroll>
+        <div className="mx-auto my-8">
           <header className="flex w-full items-center justify-between px-10">
             <Link href="/" style={{ textDecoration: 'none' }}>
               <img
@@ -71,11 +70,11 @@ const Main = (props: IMainProps) => {
           <main className="relative block h-full py-5">{props.children}</main>
 
           {/* <footer className="border-t border-gray-300 py-8 text-center text-sm">
-        © Copyright {new Date().getFullYear()} {AppConfig.title}. Made with{' '}
-        <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a>.{}
-      </footer> */}
+    © Copyright {new Date().getFullYear()} {AppConfig.title}. Made with{' '}
+    <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a>.{}
+  </footer> */}
         </div>
-      </NoSSRScroll>
+      </SmoothScroll>
     </div>
   );
 };
